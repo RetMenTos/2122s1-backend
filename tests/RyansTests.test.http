@@ -1,3 +1,4 @@
 @host = http://localhost:3000
 
+//Results in failure
 GET {{host}}/unknown HTTP/1.1
