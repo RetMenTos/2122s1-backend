@@ -11,4 +11,12 @@ router.get('/errors', (req, res, next) => {
         .catch(next);
 });
 
+router.get('/processing-times', (req, res, next) => {
+    const { from, duration, status_codes: statusCodes } = req.query;
+    return statsManager
+        .getErrors(from, duration, statusCodes)
+        .then((response) => res.json(response))
+        .catch(next);
+});
+
 module.exports = router;
